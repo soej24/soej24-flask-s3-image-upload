@@ -1,7 +1,7 @@
 from datetime import datetime
 from http import HTTPStatus
 from os import access
-from flask import request
+from flask import Config, request
 from flask_jwt_extended import create_access_token, get_jwt, get_jwt_identity, jwt_required
 from flask_restful import Resource
 from mysql.connector.errors import Error
@@ -37,6 +37,7 @@ class FileUploadResource(Resource) :
         # boto3 라이브러리 설치
         # pip install boto3
 
-
+        boto3.client('s3',
+                    aws_access_key_id = Config.ACCess_KEY)
 
         return
