@@ -5,6 +5,7 @@ from config import Config
 from resources.image import FileUploadResource
 from resources.posting import PostingResource
 from resources.rekognition import ObjectDetectionResource
+from resources.user import UserRegisterResource
 
 app = Flask(__name__)
 
@@ -20,6 +21,8 @@ api = Api(app)
 api.add_resource(FileUploadResource, '/upload')
 api.add_resource(PostingResource, '/posting')
 api.add_resource(ObjectDetectionResource, '/object_detection')
+
+api.add_resource(UserRegisterResource, '/users/register')
 
 if __name__=="__main__" :
     app.run()
